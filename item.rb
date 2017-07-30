@@ -27,6 +27,10 @@ class Item
     end
   end
 
+  def edit(new_name)
+    self.name = new_name
+  end
+
   # returns a new item based on a line of text
   def self.new_from_line(line, index = nil)
     status = line[3] == 'x' ? "done" : "undone"

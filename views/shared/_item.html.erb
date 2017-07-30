@@ -1,9 +1,16 @@
-<li class="<%= item.status %>">
+<li class="<%= item.status %>" id="item-name">
   <%= item.name %>
   <input type="hidden" value="<%= item.name %>" name="items[][name]">
-  <input type="hidden" value="<%= item.status %>" name="items[][status]">
+  <input type="hidden" value="<%= item.status %>" name="items[][status]"> 
+  <button name= "delete-item" type="submit" id="delete-item" class="hidden">X</button>
   <button type="submit" name="toggle" value="<%= item.name %>"
     class="toggle <%= item.status %>">
     <%= item.done? ? "Undo" : "Done" %>
   </button>
+  <button id="edit-item-button" type="submit" class="hidden">Edit</button>
+  <input type="text" id="edit-item" class="edit-item hidden" name="edit-item">
+  <button type="submit" id="cancel-edit-item" class="hidden">X</button>
+  <button type="submit" name="save-edit-item" id="save-edit-item" class="hidden" value = "1">Save</button>
 </li>
+
+

@@ -1,5 +1,7 @@
 body {
   font-family: Sans-serif;
+  width: 2000px;
+
 }
 h1 {
   color: #efefef;
@@ -27,6 +29,8 @@ li.done {
   padding: 5px;
   width: 250px;
   font-size: 0.8em;
+  float: left;
+  margin-left: 10px;
 }
 .list-header {
   font-weight: bold;
@@ -93,11 +97,25 @@ button.save {
   vertical-align: top;
   background-color: rgba(0, 121, 191, 0.5);
 }
-button.hidden {
-  display: none;
-}
-
 form.update-all,
 form.add-item {
   margin-bottom: 0;
+}
+
+.hidden {
+  display:none;
+}
+
+button #delete-item {
+  background-color: #ffb3ff;
+  vertical-align: top;
+  float: center;
+}
+
+#edit-item-button {
+  background-color: #adebad;
+}
+
+#cancel-edit-item button{
+  background-color: #adebad;
 }

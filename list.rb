@@ -12,7 +12,7 @@ class List
 
   def load_from_file
     @lines = File.read(filename).split("\n")
-    @name = @lines.shift # get the first line to be the List name
+    @name = @lines.shift # get   the first line to be the List name
     @items = @lines.map.with_index {|line, index| Item.new_from_line(line, index)}
   end
 
@@ -38,4 +38,14 @@ class List
     lines = [name] + @items.map(&:display_line)
     File.write(filename, lines.join("\n"))
   end
+
+  def delete!(item_index)
+    self.items.delete_at(item_index)
+    self.items
+  end
+
+  def edit_item(new_name, index)
+    self.items[index].edit(new_name)
+  end
+
 end

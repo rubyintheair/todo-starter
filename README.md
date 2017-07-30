@@ -8,10 +8,10 @@ A few things you can play with:
 
 ## Setting up
 
-- [ ] Git clone the project to the computer
-- [ ] If you're on a Mac, run the app with `shotgun app.rb` then open http://localhost:9393
-- [ ] If yu're on Windows, run the app with `ruby app.rb` then open http://localhost:4567
-- [ ] Look at `data/0.md`, add some mock data and reload the browser to make sure it works correctly
+- [x] Git clone the project to the computer
+- [x] If you're on a Mac, run the app with `shotgun app.rb` then open http://localhost:9393
+- [x] If yu're on Windows, run the app with `ruby app.rb` then open http://localhost:4567
+- [x] Look at `data/0.md`, add some mock data and reload the browser to make sure it works correctly
 - [ ] Mark items as Done/Undone on the browser and check `data/0.md`
 - [ ] Add a few new item to the list on the browser and check `data/0.md`
 

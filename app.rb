@@ -13,8 +13,16 @@ get "/" do
   @title = "Your App Name"
   list = List.new("0")
   list.load_from_file
-  erb :"index.html", locals: {list: list}, layout: :"layout.html"
+  files = Dir["./data/*.md"]
+  p files
+  files = files.map do |file| 
+    list = List.new(file[7]) #the order of letter of id file
+    list.load_from_file
+    list
+  end 
+  erb :"index.html", locals: {files: files}, layout: :"layout.html"
 end
+
 
 # UPDATE a list with id from params["id"]
 post "/lists/update" do
@@ -35,6 +43,21 @@ post "/lists/update" do
     list.toggle_item(params["toggle"])
   end
 
+  if params["delete-item"]
+    puts "Quy test to delete #{params["delete-item"]}"
+    list.delete!(params["delete-item"].to_i)
+  end
+
+  if params["new-list-name"]
+    list.name = params["new-list-name"]
+  end
+
+  if params["save-edit-item"] 
+    index = params["edit-item-index"].to_i
+    list.items[index].edit(params["edit-item"])
+    # items[index].name = params["edit-item"]
+  end
+
   list.save!
   redirect back
 end
@@ -45,9 +68,17 @@ post "/lists/:id/items/add" do
   list = List.new(params["id"])
   list.load_from_file
   puts "Creating item #{params['name']} for list #{params['id']}"
-  if params["name"]
+  if params["add-item-button"]
+    # params["name"] || 
     list.add(params["name"])
     list.save!
   end
   redirect back
+end
+
+post "/add-list" do 
+  debug_params
+  puts "Quy add-list now: "
+  a = File.open("./data/#{params["new_file_number"]}.md", "w") {|f| f.write("#{params["item_name"]}") }
+  redirect back 
 end
