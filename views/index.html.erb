@@ -1,5 +1,7 @@
 <h1 id="heading"><%= @title || "Torello" %></h1>
 
+
+
 <div class="all-lists js-sortable-lists js-connected-lists">
   <% files.each_with_index do |list, index| %>
     <%= erb :"shared/_list.html", locals: {list: list, index: index} %>
@@ -13,9 +15,12 @@
   <form class="add-list-form hidden" method="post" action="add-list" >
     <input type="text" name="item_name">
     <input type="hidden" name="new_file_number" value="<%= files.count %>">
+    <button type="submit" class="cancel-add-list hidden">X<button>
     <input type="submit">
   </form>
 </div>
+
+
 
 
 

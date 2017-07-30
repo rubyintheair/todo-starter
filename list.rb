@@ -48,4 +48,8 @@ class List
     self.items[index].edit(new_name)
   end
 
+  def search(text)
+    @items.select {|item| item.include?(text)}
+  end
+
 end

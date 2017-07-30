@@ -1,3 +1,4 @@
+
 body {
   font-family: Sans-serif;
   width: 2000px;
@@ -6,6 +7,11 @@ body {
 h1 {
   color: #efefef;
 }
+
+h1 #heading {
+  color: #ff3399;
+}
+
 ul {
   list-style: none;
   margin: 0;
